@@ -2,16 +2,22 @@
 This project was created for the course From Design to Software on the TU Wien in SS2019.
 
 # Introduction
-This project serves as a tool to verivy if you have a valid maDMP file or not. I depends on avj [link] which is atool for validating json file a gainst specified schema.
+This project we will devlop a tool for validating maDMP against RDA mdDMP schema. I depends on AJV [https://ajv.js.org/] which is atool for validating json file a gainst specified schema. This tool developed using PHP, JavaScript and node.js
 
-* Import metadata from an maDMP 
-* Export files as JSON in a RDA DMP Common Standard compliant syntax 
+# Getting started
+* Install [XAMPP](https://www.apachefriends.org/download.html)
+* Go to the path: C:\xampp\htdocs\dashboard
+* Create a folder for the progect maDMP
+* Copy project files into maDMP folder
+* Run XAMPP server
+* Open localhost in your browser: http://localhost:82/dashboard/maDmp
+* Paste your maDMP and click on Validating to see the result.
 
-# Prerequisite
-As 
-
-# Running the project
-* First 
+# Used tools
+* AVJ [https://ajv.js.org/] json files validating.
+* Browserify [http://browserify.org/] to require('modules') in the browser by bundling up all dependencies 
+* Copy project folder to PHP server.
+* Run the project from your browser 
 
 
 
