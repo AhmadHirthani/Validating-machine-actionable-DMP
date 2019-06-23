@@ -26,7 +26,7 @@
     </textarea>
     <label id="schmaID" style="display:none;"><?php
         $myfile = fopen("schema.json", "r") or die("Unable to open file!");
-        echo fread($myfile,filesize("schema.json"));
+        echo fread($myfile,filesize("https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json"));
         fclose($myfile);
         ?>
     </label>
