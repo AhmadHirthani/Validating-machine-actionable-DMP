@@ -9,7 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.10.0/ajv.bundle.js"></script>
     <script src="bundle.js"></script>
     <style type="text/css">
-        body{background-color: #F8FFF8;}
+        body{background-color: #F8FFF8;
+             height: auto;
+             width:100%;
+             margin: 5%;}
         img.logo{background-position: top left}
         #vaildresultID {color:green; font-size: 23PX;font-weight: bold}
         #invaildresultID {color: red; font-size: 25PX;font-weight: bold}
@@ -21,7 +24,7 @@
 <div class="container">
     <nav class="navbar navbar-light" style="background-color:#9BD692;">
         <a class="navbar-brand" href="#">
-            <img src="https://www.rd-alliance.org/sites/all/themes/rdafour/logo.png" class="d-inline-block align-top" alt="">
+            <img src="https://www.rd-alliance.org/sites/all/themes/rdafour/rda-logo.png" class="d-inline-block align-top" alt="">
         </a>
         <img src="TUWIEN-Logo.png" width="400" align="right">
 
@@ -35,8 +38,6 @@
         Validating maDMP against RDA DMP schema <br>
         Tool for <strong> validating machine actionable </strong>data management plan against <strong>RDA DMP</strong> standard schema
     </p>
-    <br>
-    <br>
     <form action="<?php echo $_SERVER['PHP_SELF'];?> " method="POST">
         <textarea style="" rows="20" cols="145" id="dataID"  placeholder="Put your maDMP here, please!!"></textarea><br>
     </form>
