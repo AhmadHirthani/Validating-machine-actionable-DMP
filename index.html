@@ -41,7 +41,7 @@
     <script src="bundle.js"></script>
 </head>
 <body>
-    <textarea rows="5" cols="5" id="schmaID" style="display:none;" ><?php echo file_get_contents("schema.json");?></textarea><br>
+    <textarea rows="5" cols="5" id="schmaID" style="display:none;" ></textarea><br>
     <h1>Validating maDMP against RDA DMP schema</h1>
     <h2>Tool for validating machine actionable data management plan against RDA DMP standard schema</h2>
     <h3>Devloped by Ahmad Alhirthani for the course From design to software in TUWIEN</h3>
@@ -62,6 +62,23 @@
 
     </div>
     <script type="text/javascript">
+        var nesne ;
+        if(navigator.appName.search('Microsoft')>-1) { nesne = new ActiveXObject('MSXML2.XMLHTTP'); }
+        else { nesne = new XMLHttpRequest(); }
+
+        nesne.ad='schmaID';
+        nesne.open('get', 'schema.json', true);
+        nesne.onreadystatechange= cevap;
+        nesne.send(null);
+        function cevap() {
+        if(this.readyState==4) {
+        var el = document.getElementById(this.ad);
+        el.innerHTML = this.responseText;
+        }
+        }
+
+
+
         function validate(){
             document.getElementById('vaildresultID').innerHTML = "";
             document.getElementById('invaildresultID').innerHTML = "";
@@ -75,10 +92,18 @@
 
 
             var maDMP = document.getElementById("dataID").value;
-            var maDMPJSON = JSON.parse(maDMP);//.substring(1, maDMP.length));
+            var maDMPJSON = JSON.parse(maDMP);
+            //var maDMPJSON = JSON.parse(maDMP.substring(1, maDMP.length));
+            console.log("maDMPJSON");
+            console.log(maDMPJSON);
+
             var schema = document.getElementById("schmaID").textContent;
-            console.log(schema);
-            var schemaJSON = JSON.parse(schema.substring(1, schema.length));
+            var schemaJSON = JSON.parse(schema);
+            //var schemaJSON = JSON.parse(schema.substring(1, schema.length));
+            console.log("schemaJSON");
+            console.log(schemaJSON);
+
+
 
             var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
             var validate = ajv.compile(schemaJSON);
