@@ -10,9 +10,9 @@
     <script src="bundle.js"></script>
     <style type="text/css">
         body{background-color: #F8FFF8;
-             height: auto;
-             width:100%;
-             margin: 5%;}
+            height: auto;
+            width:100%;
+            margin: 5%;}
         img.logo{background-position: top left}
         #vaildresultID {color:green; font-size: 23PX;font-weight: bold}
         #invaildresultID {color: red; font-size: 25PX;font-weight: bold}
@@ -27,19 +27,16 @@
             <img src="rda-logo.png" class="d-inline-block align-top" alt="">
         </a>
         <img src="TUWIEN-Logo.png" width="400" align="right">
-
     </nav>
 </div>
 <div class="container">
-
     <textarea rows="5" cols="5" id="schmaID" style="display:none;"></textarea><br>
-
     <p   class="text-justify text-center lead font-weight-bold">
         Validating maDMP against RDA DMP schema <br>
         Tool for <strong> validating machine actionable </strong>data management plan against <strong>RDA DMP</strong> standard schema
     </p>
     <form action="<?php echo $_SERVER['PHP_SELF'];?> " method="POST">
-        <textarea style="" rows="20" cols="145" id="dataID"  placeholder="Put your maDMP here, please!!"></textarea><br>
+        <textarea style="" rows="15" cols="155" id="dataID"  placeholder="Put your maDMP here, please!!"></textarea>
     </form>
 
     <div>
