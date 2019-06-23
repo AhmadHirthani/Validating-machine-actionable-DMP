@@ -42,8 +42,8 @@
 </head>
 <body>
     <textarea rows="5" cols="5" id="schmaID" style="display:none;" ><?php
-            $myfile = fopen("/schema.json", "r") or die("Unable to open file!");
-            echo fread($myfile,filesize("/schema.json"));
+            $myfile = fopen("https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json", "r") or die("Unable to open file!");
+            echo fread($myfile,filesize("https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json"));
             fclose($myfile);
             ?></textarea><br>
     <h1>Validating maDMP against RDA DMP schema</h1>
