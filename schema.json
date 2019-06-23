@@ -84,7 +84,7 @@
           "title": "The Modified Schema",
           "default": null,
           "example": "2019-04-10T00:00:00"
-        ,
+          ,
           "format": "date-time"
         },
         "ethical_issues_exist": {
@@ -788,18 +788,18 @@
                           "type": "string",
                           "enum": [
                             "DIN3164437" ,
-                            "DINI-Zertifikat38" ,
-                            "DSA39" ,
-                            "ISO1636340" ,
-                            "ISO1691941" ,
-                            "TRAC42" ,
-                            "WDS43" ,
+                            "DINI-Zertifikat38" , 
+                            "DSA39" , 
+                            "ISO1636340" , 
+                            "ISO1691941" , 
+                            "TRAC42" , 
+                            "WDS43" , 
                             "CoreTrustSeal"
                           ],
                           "title": "The certified_with Schema",
                           "examples": [
-                            "DIN3164437"
-                          ]
+                        "DIN3164437"
+                      ]
                         },
                         "geo_location": {
                           "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/geo_location",
