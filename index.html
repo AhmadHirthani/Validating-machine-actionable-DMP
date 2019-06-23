@@ -41,11 +41,7 @@
     <script src="bundle.js"></script>
 </head>
 <body>
-    <textarea rows="5" cols="5" id="schmaID" style="display:none;" ><?php
-            $myfile = fopen("https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json", "r") or die("Unable to open file!");
-            echo fread($myfile,filesize("https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json"));
-            fclose($myfile);
-            ?></textarea><br>
+    <textarea rows="5" cols="5" id="schmaID" style="display:none;" ><?php echo file_get_contents("schema.json");?></textarea><br>
     <h1>Validating maDMP against RDA DMP schema</h1>
     <h2>Tool for validating machine actionable data management plan against RDA DMP standard schema</h2>
     <h3>Devloped by Ahmad Alhirthani for the course From design to software in TUWIEN</h3>
