@@ -51,6 +51,7 @@
         var maDMP = document.getElementById("dataID").value;
         var maDMPJSON = JSON.parse(maDMP);//.substring(1, maDMP.length));
         var schema = document.getElementById("schmaID").textContent;
+        console.log(schema);
         var schemaJSON = JSON.parse(schema);
 
         var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
