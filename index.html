@@ -15,8 +15,10 @@
         img.logo{background-position: top left}
         #vaildresultID {color:green; font-size: 23PX;font-weight: bold}
         #invaildresultID {color: red; font-size: 25PX;font-weight: bold}
-        #datapathlabelID,#messagelabelID {color: red; font-size: 20PX; font-weight: bold}
-        #errdataPathID,#errmessageID{font-size: 20PX; font-weight: bold}
+        #datapathlabelID,#messagelabelID,#allowedValueslabelID {color: red; font-size: 20PX; font-weight: bold}
+        #errdataPathID,#errmessageID,#allowedValuesID{font-size: 20PX; font-weight: bold}
+
+
     </style>
 </head>
 <body>
@@ -43,7 +45,11 @@
         <label id="datapathlabelID"></label>
         <label id="errdataPathID"></label><br>
         <label id="messagelabelID"></label>
-        <label id="errmessageID"></label>
+        <label id="errmessageID"></label><br>
+        <label id="allowedValueslabelID"></label>
+        <label id="allowedValuesID"></label>
+
+
     </div>
     <script type="text/javascript">
         function validate(){
@@ -53,6 +59,9 @@
             document.getElementById('errdataPathID').innerHTML = "";
             document.getElementById('messagelabelID').innerHTML = "";
             document.getElementById('errmessageID').innerHTML = "";
+            document.getElementById('allowedValueslabelID').innerHTML = "";
+            document.getElementById('allowedValuesID').innerHTML = "";
+
             var maDMP = document.getElementById("dataID").value;
             var maDMPJSON = JSON.parse(maDMP);
             //var maDMPJSON = JSON.parse(maDMP.substring(1, maDMP.length));
@@ -75,6 +84,15 @@
                 document.getElementById('errdataPathID').innerHTML =errors[0]['dataPath'];
                 document.getElementById('messagelabelID').innerHTML = "Message: ";
                 document.getElementById('errmessageID').innerHTML =errors[0]['message'];
+                if (errors[0]['params']['allowedValues']) {
+                    document.getElementById('allowedValueslabelID').innerHTML ="Allowed Values: ";
+                    document.getElementById('allowedValuesID').innerHTML =errors[0]['params']['allowedValues'];
+                }
+                else{
+                    document.getElementById('allowedValueslabelID').innerHTML ="";
+                    document.getElementById('allowedValuesID').innerHTML ="";
+                }
+
                 console.log("invalid");
             }
             else {
