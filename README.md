@@ -2,15 +2,13 @@
 This project was created for the course From Design to Software on the TU Wien in SS2019.
 
 # Introduction
-This project we will devlop a tool for validating maDMP against RDA mdDMP schema. I depends on AJV [https://ajv.js.org/] which is atool for validating json file a gainst specified schema. This tool developed using HTML and JavaScript.
+In this project we will devlop a tool for validating maDMP against RDA mdDMP schema. I depends on [AJV] (https://ajv.js.org/) which is atool for validating json file a gainst specified schema. This tool developed using HTML and JavaScript.
 
 # Developing environment requirement
 * [XAMPP](https://www.apachefriends.org/download.html)
 * Text Editor.
 
 # Used tools
-* AVJ [https://ajv.js.org/] 
-* Browserify [http://browserify.org/] 
 * [AJV](https://ajv.js.org/) which is used for json files validating.
 * [AJV Errors](https://www.npmjs.com/package/ajv-errors) which is used to handle resulting error messsages.
 * [Browserify](http://browserify.org/) which is used to require('modules') in the browser by bundling up all dependencies 
