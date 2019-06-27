@@ -32,13 +32,13 @@
 <div class="container">
     <p   class="text-justify text-center lead font-weight-bold" style="color: #80CAE8">
         Validating maDMP against RDA DMP schema <br>
-        Tool for <strong> validating machine actionable </strong>data management plan against <strong>RDA DMP</strong> standard schema
+        This tool checks whether <strong> machine-actionable DMPs </strong> conform to <strong> RDA DMP Common Standard </strong>
     </p>
     <form action="<?php echo $_SERVER['PHP_SELF'];?> " method="POST">
-        <textarea style="" rows="15" cols="155" id="dataID"  placeholder="Put your maDMP here, please!!"></textarea>
+        <textarea style="" rows="15" cols="155" id="dataID"  placeholder="Paste your maDMP here"></textarea>
     </form>
     <div>
-        <button  id="button" onclick="validate()" type="button" class="btn btn-success">Test Validation</button><br>
+        <button  id="button" onclick="validate()" type="button" class="btn btn-success">Validate</button><br>
         <label id="vaildresultID"></label>
         <label id="invaildresultID"></label><br>
         <label id="datapathlabelID"></label>
@@ -95,12 +95,18 @@
                 console.log("invalid");
             }
             else {
-                document.getElementById('vaildresultID').innerHTML = "Validated maDMP" ;
+                document.getElementById('vaildresultID').innerHTML = "Validated - the maDMP instance is conform the the schema" ;
                 console.log("valid");
             }
         }
     </script>
     <hr color= "#9BD692">
+    <div>
+        <footer><p class="lead text-center" href:"https://github.com/hertai86/Validating-machine-actionable-DMP/tree/master/testingExamples">Testing Examples</strong></p>
+                <p class="lead text-center" href:"https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json">RDA DMP Schema</strong></p>
+        
+        </footer>
+    </div>
     <div>
         <footer><p class="lead text-center"> &copy Devloped by <strong>Ahmad Alhirthani</strong> for the course From design to software in <strong> TUWIEN</strong></p>
         </footer>
