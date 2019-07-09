@@ -1,4 +1,4 @@
-{
+var data={
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://example.com/rda_dmp_common_standard.json",
@@ -788,12 +788,12 @@
                           "type": "string",
                           "enum": [
                             "DIN3164437" ,
-                            "DINI-Zertifikat38" , 
-                            "DSA39" , 
-                            "ISO1636340" , 
-                            "ISO1691941" , 
-                            "TRAC42" , 
-                            "WDS43" , 
+                            "DINI-Zertifikat38" ,
+                            "DSA39" ,
+                            "ISO1636340" ,
+                            "ISO1691941" ,
+                            "TRAC42" ,
+                            "WDS43" ,
                             "CoreTrustSeal"
                           ],
                           "title": "The certified_with Schema",
