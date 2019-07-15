@@ -1,5 +1,6 @@
 ﻿html, body{
     height: 100%;
+    overflow: auto;
 }
 body {
     padding-top: 80px
@@ -16,7 +17,6 @@ body {
 
 label{
     font-size: 1.2em;
-    margin: 1em 0em;
     display: block !important;
 }
 

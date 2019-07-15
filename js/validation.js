@@ -1,5 +1,9 @@
 var maDMPJSON = null;
+var isVocabExisted = $('#certificateExistance').val();
+var isValidationPassed = true;
+
 function validate() {
+    isValidationPassed = true;
     document.getElementById('vaildresultID').innerHTML = "";
     document.getElementById('invaildresultID').innerHTML = "";
     document.getElementById('datapathlabelID').innerHTML = "";
@@ -11,11 +15,10 @@ function validate() {
     var maDMP = document.getElementById("dataID").value;
     maDMPJSON = JSON.parse(maDMP);
     //var maDMPJSON = JSON.parse(maDMP.substring(1, maDMP.length));
-    console.log("maDMPJSON");
+    console.log("maDMPJSON object:");
     console.log(maDMPJSON);
     var schemaJSON = data;
-    console.log("schemaJSON");
-    console.log(schemaJSON);
+    //console.log(schemaJSON);
     var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
     var validate = ajv.compile(schemaJSON);
     var valid = validate(maDMPJSON);
@@ -42,10 +45,11 @@ function validate() {
 
     //maDMPJSON.dmp.dataset[0].distribution[0].license[0].license_ref
     else {
-        if (maDMPJSON != null && maDMPJSON.dmp != null) {
+        if (maDMPJSON != null && maDMPJSON.dmp != null && maDMPJSON.dmp != undefined) {
             var isValidLink = true;
             var isWorkingLink = true;
             maDMPJSON.dmp.dataset.forEach(function (ds_element) {
+                //dataset distribtuion loop
                 ds_element.distribution.forEach(function (dist_element) {
                     dist_element.license.forEach(function (li_element) {
 
@@ -53,6 +57,7 @@ function validate() {
                             isValidLink = false;
                             document.getElementById('invaildresultID').innerHTML = li_element.license_ref + " is not a valid URL!";
                             document.getElementById('invaildresultID').classList.add('text-danger');
+                            isValidationPassed = false;
                             return;
                         }
                         try {
@@ -65,21 +70,55 @@ function validate() {
                                 console.log(li_element.license_ref + "Sorry URL is not accessable");
                                 document.getElementById('invaildresultID').innerHTML = li_element.license_ref + " is not a working URL!";
                                 document.getElementById('invaildresultID').classList.add('text-danger');
+                                isValidationPassed = false;
                                 return;
                             });
                         } catch (e) {
 
                         }
+                    }); //
 
+                    if (dist_element.host != null && dist_element.host != undefined) {
+                        var file = document.getElementById("distCertificates").files[0];
+                        checkVocabsVsFile(file, dist_element.host.certified_with.split(','));
+                        console.log('waiting!');
+                        setTimeout(function () {
+                            checkCertificates(dist_element.host);
+                        }, 500);
 
-                    })
-                });
-            });
+                        // console.log("checking vocabs result is " + isVocabExisted);
+
+                    }
+
+                }); //end of distribution loop
+            }); //end of datasets loop
+
         }
-        document.getElementById('vaildresultID').innerHTML = "Validated - the maDMP instance is conform the the schema";
-        document.getElementById('vaildresultID').classList.add('text-success');
-        console.log("valid");
+        setTimeout(function () {
+            printResult();
+        }, 500);
     }
+}
+
+function checkCertificates(host) {
+    isVocabExisted = $('#certificateExistance').val();
+    if (isVocabExisted == "false") {
+        console.log(host.certified_with + " is not supported!");
+        document.getElementById('invaildresultID').innerHTML = host.certified_with + " is not a supported certificate according to the uploaded vocab!";
+        document.getElementById('invaildresultID').classList.add('text-danger');
+        isValidationPassed = false;
+        $('#certificateExistance').val(false);
+
+        return;
+    }
+}
+
+function printResult() {
+    if (!isValidationPassed)
+        return;
+    document.getElementById('vaildresultID').innerHTML = "Validated - the maDMP instance is conform the the schema";
+    document.getElementById('vaildresultID').classList.add('text-success');
+    console.log("valid");
 }
 
 function validURL(str) {
@@ -90,4 +129,30 @@ function validURL(str) {
         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return !!pattern.test(str);
+}
+
+function checkVocabsVsFile(vocabsFile, maDMPVocabs) {
+    if (vocabsFile) {
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+            const file = event.target.result;
+            const allLines = file.split(/\r\n|\n/);
+            // Reading line by line
+            $('#certificateExistance').val(maDMPVocabs.every(function (i) {
+                return allLines.includes(i);
+            }));
+
+        };
+
+        reader.onerror = (event) => {
+            alert(event.target.error.name);
+        };
+
+        reader.readAsText(vocabsFile);
+    }
+}
+
+function changeInputText(inputID, labelID) {
+    $('#' + labelID).text($('#' + inputID).val().split('\\').pop());
 }
