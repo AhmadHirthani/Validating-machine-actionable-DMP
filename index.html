@@ -8,231 +8,135 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Creative - Start Bootstrap Theme</title>
+  <title>maDMP Validator - RDA</title>
 
-  <!-- Font Awesome Icons -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <script src="js/388d59fe68.js"></script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-  <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/creative.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.10.0/ajv.bundle.js"></script>
   <script type="text/javascript" src="schema.json"></script>
- 
- 
-
-
 </head>
 
-<body id="page-top">
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+<body id="page-top" class="bg-light">
+  <div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">HOME</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="javascript:void(0);" class="navbar-brand">maDMP Validation</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
         </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">Contributers <i class="fab fa-github"></i></a>
+              <div class="dropdown-menu" x-placement="bottom-start"
+                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                <a href="https://github.com/hertai86/" target="_blank" class="dropdown-item">
+                  Ahmed Alherthani <i class="fas fa-external-link-alt"></i>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="https://github.com/HasanKhatib/" target="_blank" class="dropdown-item">
+                  Hasan Alkhatib <i class="fas fa-external-link-alt"></i>
+                </a>
+
+              </div>
+            </li>
+          </ul>
+        </ul>
+
+
       </div>
     </div>
-  </nav>
+  </div>
 
-  <!-- Masthead -->
-  <header class="masthead">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">This tool checks whether machine-actionable DMPs conform to RDA DMP Common Standard</h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">© Devloped by Ahmad Alhirthani for the course From design to software in TUWIEN 
-          </p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Get Started!</a>
-        </div>
-      </div>
-    </div>
-  </header>
 
- 
+
 
   <!-- Services Section -->
-  <section class="page-section" id="services">  
-	<div class="container">
-	    <form action="<?php echo $_SERVER['PHP_SELF'];?> " method="POST">
-	        <textarea style="" rows="15" cols="110" id="dataID"  placeholder="Paste your maDMP here"></textarea>
-	    </form>
-	    <div>
+  <section class="page-section" id="messagesArea">
+    <div class="container ">
+      <div class="">
+        <h1>
+          maDMP Validator!
+        </h1>
+        <p>
+          This tool checks whether machine-actionable dmps conform to rda dmp common standard
+        </p>
+      </div>
+      <form method="POST">
+        <textarea id="dataID" placeholder="Paste your maDMP here"></textarea>
+      </form>
+      <div>
 
-	        <button  class="btn btn-primary btn-xl js-scroll-trigger" id="button" onclick="validate()" type="button">Validate</button><br>
-	        <label id="vaildresultID"></label>
-	        <label id="invaildresultID"></label><br>
-	        <label id="datapathlabelID"></label>
-	        <label id="errdataPathID"></label><br>
-	        <label id="messagelabelID"></label>
-	        <label id="errmessageID"></label><br>
-	        <label id="allowedValueslabelID"></label>
-	        <label id="allowedValuesID"></label>
+        <button class="btn btn-primary btn-xl js-scroll-trigger" id="button" onclick="validate()"
+          type="button">Validate</button>
 
+        <a href="https://github.com/hertai86/Validating-machine-actionable-DMP/tree/master/testingExamples"
+          target="_blank" class="btn btn-danger btn-xl float-right mx-1" id="button">
+          maDMP sample file! <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json" target="_blank"
+          class="btn btn-dark btn-xl float-right mx-1" id="button">
+          RDA JSON schema file! <i class="fas fa-external-link-alt"></i>
+        </a>
 
-	    </div>
-	    <script type="text/javascript">
-	        function validate(){
-	            document.getElementById('vaildresultID').innerHTML = "";
-	            document.getElementById('invaildresultID').innerHTML = "";
-	            document.getElementById('datapathlabelID').innerHTML = "";
-	            document.getElementById('errdataPathID').innerHTML = "";
-	            document.getElementById('messagelabelID').innerHTML = "";
-	            document.getElementById('errmessageID').innerHTML = "";
-	            document.getElementById('allowedValueslabelID').innerHTML = "";
-	            document.getElementById('allowedValuesID').innerHTML = "";
-	            var maDMP = document.getElementById("dataID").value;
-	            var maDMPJSON = JSON.parse(maDMP);
-	            //var maDMPJSON = JSON.parse(maDMP.substring(1, maDMP.length));
-	            console.log("maDMPJSON");
-	            console.log(maDMPJSON);
-	            var schemaJSON = data;
-	            console.log("schemaJSON");
-	            console.log(schemaJSON);
-	            var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
-	            var validate = ajv.compile(schemaJSON);
-	            var valid = validate(maDMPJSON);
-	            if (!valid) {
-	                console.log("validate.errors");
-	                console.log(validate.errors);
-	                var errors=validate.errors;
-	                document.getElementById('invaildresultID').innerHTML = "Not validated maDMP" ;
-	                document.getElementById('datapathlabelID').innerHTML ="Data Path: ";
-	                document.getElementById('errdataPathID').innerHTML =errors[0]['dataPath'];
-	                document.getElementById('messagelabelID').innerHTML = "Message: ";
-	                document.getElementById('errmessageID').innerHTML =errors[0]['message'];
-	                if (errors[0]['params']['allowedValues']) {
-	                    document.getElementById('allowedValueslabelID').innerHTML ="Allowed Values: ";
-	                    document.getElementById('allowedValuesID').innerHTML =errors[0]['params']['allowedValues'];
-	                }
-	                else{
-	                    document.getElementById('allowedValueslabelID').innerHTML ="";
-	                    document.getElementById('allowedValuesID').innerHTML ="";
-	                }
-	                console.log("invalid");
-	            }
-	            else {
-	                document.getElementById('vaildresultID').innerHTML = "Validated - the maDMP instance is conform the the schema" ;
-	                console.log("valid");
-	            }
-	        }
-	    </script>
-	    <hr color= "#9BD692">
-	    <div>
-	        <footer>
-	        	<a class="lead text-center" href="https://github.com/hertai86/Validating-machine-actionable-DMP/tree/master/testingExamples">Testing Examples</strong></a>
-	        	<a class="lead text-center">----------------</strong></a>
-	             <a class="lead text-center" href="https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json">RDA DMP Schema</strong></a>
-	        </footer>
-	    </div>
-	   
+        <label id="vaildresultID"></label>
+        <label id="invaildresultID"></label>
+        <label id="datapathlabelID"></label>
+        <label id="errdataPathID"></label>
+        <label id="messagelabelID"></label>
+        <label id="errmessageID"></label>
+        <label id="allowedValueslabelID"></label>
+        <label id="allowedValuesID"></label>
+      </div>
 
-	</div>
+    </div>
+  </section>
 
-
-
-   <!--  <div class="container">
-      <h2 class="text-center mt-0">At Your Service</h2>
-      <hr class="divider my-4">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Sturdy Themes</h3>
-            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Up to Date</h3>
-            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Ready to Publish</h3>
-            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Made with Love</h3>
-            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
-          </div>
+  <section id="vocabFiles" class="container my-5">
+    <h2>Custom vocabs for your DMP fields</h2>
+<!-- 
+    <div class="row my-3">
+      <div class="col-sm-12">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="vocabsFiles" name="Files"
+            onchange="javascript:changeInputText('vocabsFiles','vocabsFilesLabel')">
+          <label class="custom-file-label" id="vocabsFilesLabel" for="vocabsFiles">Allowed files types</label>
         </div>
       </div>
     </div> -->
-  </section>
-  <!-- End Services Section -->
 
-
-
-
-
-  <!-- Contact Section -->
-  <section class="page-section" id="contact">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Let's Get In Touch!</h2>
-          <hr class="divider my-4">
-          <p class="text-muted mb-5">If you have any questions, notes or suggestions please contact us at</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>+970-597564456</div>
-        </div>
-        <div class="col-lg-4 mr-auto text-center">
-          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-          <!-- Make sure to change the email address in anchor text AND the link below! -->
-          <a class="d-block" href="mailto:hertani86@gmail.com">hertani86@gmail.com</a>
+    <div class="row my-3">
+      <div class="col-sm-12">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="distCertificates" name="Files"
+          onchange="javascript:changeInputText('distCertificates','distCertificatesLabel')">
+          <input type="hidden" id="certificateExistance" value="false">
+          <label class="custom-file-label" id="distCertificatesLabel" for="customFile">Allowed distribution certificates</label>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-light py-5">
+
+  <footer class="bg-secondary m-0 p-5">
     <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
+      <p>This work has been developed as a requirement for the course From design to software in TUWIEN</p>
+      <p><i class="fas fa-balance-scale"></i> Ahmad & Hasan - <a
+          href="https://github.com/HasanKhatib/Validating-machine-actionable-DMP/blob/master/LICENSE">MIT License</a>
+      </p>
     </div>
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/validation.js"></script>
 
 </body>
 
