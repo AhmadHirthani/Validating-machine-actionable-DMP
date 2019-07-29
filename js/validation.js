@@ -61,18 +61,16 @@ function validate() {
                             return;
                         }
                         try {
-                            $.ajax({
-                                type: "GET",
-                                url: li_element.license_ref
-                            }).done(function (result) {
-                                console.log(li_element.license_ref + " is a working link")
-                            }).fail(function () {
-                                console.log(li_element.license_ref + "Sorry URL is not accessable");
-                                document.getElementById('invaildresultID').innerHTML = li_element.license_ref + " is not a working URL!";
-                                document.getElementById('invaildresultID').classList.add('text-danger');
-                                isValidationPassed = false;
-                                return;
-                            });
+							 $.ajax({
+								url: li_element.license_ref,
+								type: 'HEAD',
+								dataType: 'jsonp',
+								complete: function(xhr, textStatus) {
+									if (xhr.status == 404) {
+										document.getElementById('invaildresultID').innerHTML = li_element.license_ref + " is not a accessible!";
+									} 
+								}
+							})
                         } catch (e) {
 
                         }
