@@ -19,124 +19,103 @@
 </head>
 
 <body id="page-top" class="bg-light">
-  <div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <div class="container">
-      <a href="javascript:void(0);" class="navbar-brand">maDMP Validation</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a href="javascript:void(0);" class="navbar-brand">maDMP Validation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+               aria-expanded="false">Contributors <i class="fab fa-github"></i></a>
+            <div class="dropdown-menu" x-placement="bottom-start"
+                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+              <a href="https://github.com/hertai86/" target="_blank" class="dropdown-item">
+                Ahmed Alherthani <i class="fas fa-external-link-alt"></i>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="https://github.com/HasanKhatib/" target="_blank" class="dropdown-item">
+                Hasan Alkhatib <i class="fas fa-external-link-alt"></i>
+              </a>
+
+            </div>
           </li>
         </ul>
-        <ul class="nav navbar-nav ml-auto">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                aria-expanded="false">Contributers <i class="fab fa-github"></i></a>
-              <div class="dropdown-menu" x-placement="bottom-start"
-                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
-                <a href="https://github.com/hertai86/" target="_blank" class="dropdown-item">
-                  Ahmed Alherthani <i class="fas fa-external-link-alt"></i>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="https://github.com/HasanKhatib/" target="_blank" class="dropdown-item">
-                  Hasan Alkhatib <i class="fas fa-external-link-alt"></i>
-                </a>
-
-              </div>
-            </li>
-          </ul>
-        </ul>
+      </ul>
 
 
-      </div>
     </div>
   </div>
+</div>
 
 
 
 
-  <!-- Services Section -->
-  <section class="page-section" id="messagesArea">
-    <div class="container ">
-      <div class="">
-        <h1>
-          maDMP Validator!
-        </h1>
-        <p>
-          This tool checks whether machine-actionable dmps conform to rda dmp common standard
-        </p>
-      </div>
-      <form method="POST">
-        <textarea id="dataID" placeholder="Paste your maDMP here"></textarea>
-      </form>
-      <div>
-
-        <button class="btn btn-primary btn-xl js-scroll-trigger" id="button" onclick="validate()"
-          type="button">Validate</button>
-
-        <a href="https://github.com/hertai86/Validating-machine-actionable-DMP/tree/master/testingExamples"
-          target="_blank" class="btn btn-danger btn-xl float-right mx-1" id="button">
-          maDMP sample file! <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json" target="_blank"
-          class="btn btn-dark btn-xl float-right mx-1" id="button">
-          RDA JSON schema file! <i class="fas fa-external-link-alt"></i>
-        </a>
-
-        <label id="vaildresultID"></label>
-        <label id="invaildresultID"></label>
-        <label id="datapathlabelID"></label>
-        <label id="errdataPathID"></label>
-        <label id="messagelabelID"></label>
-        <label id="errmessageID"></label>
-        <label id="allowedValueslabelID"></label>
-        <label id="allowedValuesID"></label>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="vocabFiles" class="container my-5">
-    <h2>Custom vocabs for your DMP fields</h2>
-<!-- 
-    <div class="row my-3">
-      <div class="col-sm-12">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="vocabsFiles" name="Files"
-            onchange="javascript:changeInputText('vocabsFiles','vocabsFilesLabel')">
-          <label class="custom-file-label" id="vocabsFilesLabel" for="vocabsFiles">Allowed files types</label>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="row my-3">
-      <div class="col-sm-12">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="distCertificates" name="Files"
-          onchange="javascript:changeInputText('distCertificates','distCertificatesLabel')">
-          <input type="hidden" id="certificateExistance" value="false">
-          <label class="custom-file-label" id="distCertificatesLabel" for="customFile">Allowed distribution certificates</label>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <footer class="bg-secondary m-0 p-5">
-    <div class="container">
-      <p>This work has been developed as a requirement for the course From design to software in TUWIEN</p>
-      <p><i class="fas fa-balance-scale"></i> Ahmad & Hasan - <a
-          href="https://github.com/HasanKhatib/Validating-machine-actionable-DMP/blob/master/LICENSE">MIT License</a>
+<!-- Services Section -->
+<section class="page-section" id="messagesArea">
+  <div class="container ">
+    <div class="">
+      <h1>
+        maDMP Validator!
+      </h1>
+      <p>
+        This tool checks whether machine-actionable dmps conform to rda dmp common standard ( Validates the maDMP against JSON schema and
+        checks if the URLs in the maDMP is a working URLs or not )
       </p>
+
     </div>
-  </footer>
-  <script src="js/jquery-3.3.1.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/validation.js"></script>
+    <form method="POST">
+      <textarea id="dataID" placeholder="Paste your maDMP here"></textarea>
+    </form>
+    <div>
+
+      <button class="btn btn-primary btn-xl js-scroll-trigger" id="button" onclick="validate()"
+              type="button">Validate</button>
+
+      <a href="https://github.com/hertai86/Validating-machine-actionable-DMP/tree/master/testingExamples"
+         target="_blank" class="btn btn-danger btn-xl float-right mx-1" id="button">
+        maDMP sample files! <i class="fas fa-external-link-alt"></i>
+      </a>
+      <a href="https://github.com/hertai86/Validating-machine-actionable-DMP/blob/master/schema.json" target="_blank"
+         class="btn btn-dark btn-xl float-right mx-1" id="button">
+        RDA JSON schema file! <i class="fas fa-external-link-alt"></i>
+      </a>
+
+      <label id="vaildresultID"></label>
+      <label id="invaildresultID"></label>
+      <label id="datapathlabelID"></label>
+      <label id="errdataPathID"></label>
+      <label id="messagelabelID"></label>
+      <label id="errmessageID"></label>
+      <label id="allowedValueslabelID"></label>
+      <label id="allowedValuesID"></label>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<footer class="bg-secondary m-0 p-5">
+  <div class="container">
+    <p>This work has been developed as a requirement for the course From design to software in TUWIEN</p>
+    <p><i class="fas fa-balance-scale"></i> Ahmad & Hasan - <a
+            href="https://github.com/HasanKhatib/Validating-machine-actionable-DMP/blob/master/LICENSE">MIT License</a>
+    </p>
+  </div>
+</footer>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
 
 </body>
 

@@ -53,40 +53,23 @@ function validate() {
                 ds_element.distribution.forEach(function (dist_element) {
                     dist_element.license.forEach(function (li_element) {
 
-                        if (!validURL(li_element.license_ref)) {
-                            isValidLink = false;
-                            document.getElementById('invaildresultID').innerHTML = li_element.license_ref + " is not a valid URL!";
-                            document.getElementById('invaildresultID').classList.add('text-danger');
-                            isValidationPassed = false;
-                            return;
-                        }
+
                         try {
-							 $.ajax({
-								url: li_element.license_ref,
-								type: 'HEAD',
-								dataType: 'jsonp',
-								complete: function(xhr, textStatus) {
-									if (xhr.status == 404) {
-										document.getElementById('invaildresultID').innerHTML = li_element.license_ref + " is not a accessible!";
-									} 
-								}
-							})
+                            $.ajax({
+                                url: li_element.license_ref,
+                                type: 'HEAD',
+                                dataType: 'jsonp',
+                                complete: function(xhr, textStatus) {
+                                    if (xhr.status == 404) {
+                                        document.getElementById('invaildresultID').innerHTML = " But " + li_element.license_ref + " is not a accessible!";
+                                    }
+                                }
+                            })
                         } catch (e) {
 
                         }
                     }); //
 
-                    if (dist_element.host != null && dist_element.host != undefined) {
-                        var file = document.getElementById("distCertificates").files[0];
-                        checkVocabsVsFile(file, dist_element.host.certified_with.split(','));
-                        console.log('waiting!');
-                        setTimeout(function () {
-                            checkCertificates(dist_element.host);
-                        }, 500);
-
-                        // console.log("checking vocabs result is " + isVocabExisted);
-
-                    }
 
                 }); //end of distribution loop
             }); //end of datasets loop
@@ -98,18 +81,7 @@ function validate() {
     }
 }
 
-function checkCertificates(host) {
-    isVocabExisted = $('#certificateExistance').val();
-    if (isVocabExisted == "false") {
-        console.log(host.certified_with + " is not supported!");
-        document.getElementById('invaildresultID').innerHTML = host.certified_with + " is not a supported certificate according to the uploaded vocab!";
-        document.getElementById('invaildresultID').classList.add('text-danger');
-        isValidationPassed = false;
-        $('#certificateExistance').val(false);
 
-        return;
-    }
-}
 
 function printResult() {
     if (!isValidationPassed)
@@ -119,37 +91,9 @@ function printResult() {
     console.log("valid");
 }
 
-function validURL(str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-        '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-    return !!pattern.test(str);
-}
 
-function checkVocabsVsFile(vocabsFile, maDMPVocabs) {
-    if (vocabsFile) {
-        const reader = new FileReader();
 
-        reader.onload = (event) => {
-            const file = event.target.result;
-            const allLines = file.split(/\r\n|\n/);
-            // Reading line by line
-            $('#certificateExistance').val(maDMPVocabs.every(function (i) {
-                return allLines.includes(i);
-            }));
 
-        };
-
-        reader.onerror = (event) => {
-            alert(event.target.error.name);
-        };
-
-        reader.readAsText(vocabsFile);
-    }
-}
 
 function changeInputText(inputID, labelID) {
     $('#' + labelID).text($('#' + inputID).val().split('\\').pop());
