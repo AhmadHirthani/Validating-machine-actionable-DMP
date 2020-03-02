@@ -22,7 +22,6 @@ You can use text files with a list of tokens to be used in the validation proces
 
 # Contributors
 - [Ahmad Alhirthani](https://orcid.org/0000-0003-0241-0268) <a href="https://orcid.org/0000-0003-0241-0268" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0002-1223-9620</a>
-- [Hasan Alkhatib](https://orcid.org/0000-0003-0241-0268) <a href="https://orcid.org/0000-0003-0241-0268" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0002-1223-9620</a>
 
 
 # LICENCE
